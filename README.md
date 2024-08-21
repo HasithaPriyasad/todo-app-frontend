@@ -20,6 +20,13 @@ Project was created using react, tailwind css and typescript
     npm run dev
 
 
+03.To run the tests use the following command
+
+
+
+    npm test
+
+
 
 
 ## Authors
