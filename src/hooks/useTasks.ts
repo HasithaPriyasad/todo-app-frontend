@@ -17,4 +17,12 @@ export const useAddTask = () => {
     },
   });
 };
+export const useDeleteTask = () => {
+  const queryClient = useQueryClient();
+  
+  return useMutation(taskService.deleteTask, {
+    onSuccess: () => {
+      queryClient.invalidateQueries('tasks');
+    },
+  });
 };

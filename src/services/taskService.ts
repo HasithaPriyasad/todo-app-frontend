@@ -10,3 +10,6 @@ export const createTask = async (task: Omit<Task, 'id'>): Promise<Task> => {
   const response = await api.post('/tasks', task);
   return response.data;
 };
+export const deleteTask = async (taskId: string): Promise<void> => {
+  await api.delete(`/tasks/${taskId}`);
+};

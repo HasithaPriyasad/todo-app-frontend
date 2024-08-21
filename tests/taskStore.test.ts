@@ -37,4 +37,17 @@ describe('Task Store', () => {
     const updatedStore = useTaskStore.getState();
     expect(updatedStore.tasks).toEqual([{id: "1", status: TaskStatus.NOTDONE, title: "Test Task"},{...task}]);
   });
+  it('should remove a task and update the state', async () => {
+    const taskId = '1';
+    (taskService.deleteTask as jest.Mock).mockResolvedValue(undefined);
+
+    const store = useTaskStore.getState();
+    store.tasks = [{ id: taskId, title: 'Task to Remove', status: TaskStatus.NOTDONE }];
+  
+    await act(async () => {
+      await store.removeTask(taskId);
+    });
+
+    expect(store.tasks).not.toContainEqual([{ id: taskId, title: 'Task to Remove', status: TaskStatus.NOTDONE }]);
+  });
 });
