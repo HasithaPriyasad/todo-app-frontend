@@ -22,6 +22,14 @@ export const useTaskStore = create<TaskState>((set) => ({
     const task = await taskService.createTask(todoTask);
     set((state) => ({ tasks: [...state.tasks, task] }));
   },
+  
+  updateTask: async (task) => {
+    await taskService.updateTask(task);
+    set((state) => ({
+      tasks: state.tasks.map((t) => (t.id === task.id ? task : t)),
+    }));
+  },
+  
   removeTask: async (taskId) => {
     await taskService.deleteTask(taskId);
     set((state) => ({
