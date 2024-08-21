@@ -1,21 +1,21 @@
 {
-  "env": {
-    "browser": true,
-    "es2021": true,
-    "jest": true
-  },
-  "extends": ["plugin:prettier/recommended", "eslint:recommended", "plugin:react/recommended"],
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module",
     "ecmaFeatures": {
       "jsx": true
-    },
-    "ecmaVersion": 12,
-    "sourceType": "module"
+    }
   },
-  "plugins": ["react"],
+  "plugins": ["@typescript-eslint"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended"
+  ],
   "rules": {
     "react/prop-types": "off",
-    "no-unused-vars": "warn",
-    "no-case-declarations": "off"
+    "@typescript-eslint/explicit-module-boundary-types": "off"
   }
 }
