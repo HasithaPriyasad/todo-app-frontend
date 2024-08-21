@@ -11,7 +11,7 @@ This is the front end of the TODO application. you can create, search, change th
 Project was created using react, tailwind css and typescript 
 
 ```bash
-    npm install
+npm install
 ```
 02.To run the application use the following command
 
