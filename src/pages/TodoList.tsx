@@ -34,7 +34,7 @@ const TodoList: React.FC = () => {
       <div className="w-full max-w-lg bg-white shadow-lg rounded-lg p-6">
         <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>
         <TaskInput onAddTask={handleAddTask} isLoading={isTaskLoading}/>
-        <TaskList tasks={tasks} onStatusChange={handleStatusChange} onDelete={handleDeleteTask}/>
+        <TaskList tasks={tasks} onStatusChange={handleStatusChange} onDelete={handleDeleteTask} searchQuery={searchQuery}/>
       </div>
     </div>
   );
