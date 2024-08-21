@@ -17,6 +17,17 @@ export const useAddTask = () => {
     },
   });
 };
+
+export const useUpdateTask = () => {
+  const queryClient = useQueryClient();
+  
+  return useMutation(taskService.updateTask, {
+    onSuccess: () => {
+      queryClient.invalidateQueries('tasks');
+    },
+  });
+};
+
 export const useDeleteTask = () => {
   const queryClient = useQueryClient();
   
