@@ -1,8 +1,10 @@
-function App() {
+import TodoList from "./pages/TodoList"
+
+const App = () => {
 
   return (
-     <h1>Welcome to the TODO application</h1>
+      <TodoList />
   )
 }
 
-export default App
+export default App;
