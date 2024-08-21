@@ -20,10 +20,18 @@ const TaskInput: React.FC<TaskInputProps> = ({ onAddTask, isLoading }) => {
     setError(''); 
   };
 
+  const handleKeyDown = (event: React.KeyboardEvent) => {
+    if (event.key === 'Enter' && taskTitle.trim()) {
+      handleAddTask();
+    }
+  };
+
+
   return (
     <div className="flex flex-col space-y-2 mb-6">
       <div className="flex">
         <input
+          onKeyDown={handleKeyDown}
           type="text"
           placeholder="Add a new task..."
           className={`p-3 border rounded w-full focus:ring-2 ${ error ? 'focus:ring-red-500 border-red-300' : 'focus:ring-indigo-500 border-gray-300'} focus:outline-none`}
