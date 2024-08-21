@@ -6,3 +6,7 @@ export const getTasks = async (searchTerm: string): Promise<Task[]> => {
   return response.data;
 };
 
+export const createTask = async (task: Omit<Task, 'id'>): Promise<Task> => {
+  const response = await api.post('/tasks', task);
+  return response.data;
+};
