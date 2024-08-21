@@ -18,4 +18,8 @@ export const useTaskStore = create<TaskState>((set) => ({
     set({ tasks });
   },
   
+  addTask: async (todoTask) => {
+    const task = await taskService.createTask(todoTask);
+    set((state) => ({ tasks: [...state.tasks, task] }));
+  },
 }));

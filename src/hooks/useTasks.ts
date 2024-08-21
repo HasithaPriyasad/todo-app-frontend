@@ -8,4 +8,13 @@ export const useTasks = (searchTerm: string) => {
   });
 };
 
+export const useAddTask = () => {
+  const queryClient = useQueryClient();
+  
+  return useMutation(taskService.createTask, {
+    onSuccess: () => {
+      queryClient.invalidateQueries('tasks');
+    },
+  });
+};
 };

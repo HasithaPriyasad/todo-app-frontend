@@ -26,4 +26,15 @@ describe('Task Store', () => {
     expect(updatedStore.tasks).toEqual(tasks);
   });
 
+  it('should add a task and update the state', async () => {
+    const task: Task = { id: '2', title: 'New Task', status: TaskStatus.NOTDONE };
+    (taskService.createTask as jest.Mock).mockResolvedValue(task);
+  
+    const store = useTaskStore.getState();
+    await act(async () => {
+      await store.addTask(task);
+    });
+    const updatedStore = useTaskStore.getState();
+    expect(updatedStore.tasks).toEqual([{id: "1", status: TaskStatus.NOTDONE, title: "Test Task"},{...task}]);
+  });
 });
